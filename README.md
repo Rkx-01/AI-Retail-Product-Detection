@@ -76,5 +76,11 @@ Analyze an image hosted on a remote server (e.g., GitHub raw content).
 ## 🛡️ Production Stability Notes
 This repository implements strict resource management constraints required for cloud-hosted Docker containers:
 - **Lazy Loading**: PyTorch models are loaded lazily to satisfy instantaneous container boot health checks.
-- **Thread Sandboxing**: OpenMP, MKL, and OpenBLAS threads are hard-limited to `1` to prevent CPU thrashing and container termination (OOM/Segfault) in constrained environments.
 - **Non-Root Execution**: Implements a dedicated `user` with UID 1000 for strict Hugging Face security compliance.
+
+## 🔮 Future Implementation
+The architecture has been designed to support rapid scaling and the integration of more advanced machine learning models in future iterations:
+- **RF-DETR Integration**: Upgrading the bounding box detection backend from YOLOv8 to RT-DETR (Real-Time DEtection TRansformer) for superior recall in heavily occluded retail shelf environments.
+- **SKU-110K Fine-Tuning**: Training the detection model specifically on the SKU-110K dataset to specialize in dense object detection scenarios rather than generalist categories.
+- **Brand & Logo Recognition**: Integrating OCR (Optical Character Recognition) and zero-shot logo classification to automatically identify specific brands and variants within the grouped products.
+- **Database Integration**: Connecting the grouping pipeline to a PostgreSQL or Pinecone vector database to track product stock and anomalies across multiple shelves and time periods.
