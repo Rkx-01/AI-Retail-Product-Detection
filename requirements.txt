@@ -1,0 +1,10 @@
+flask
+werkzeug
+numpy
+opencv-python-headless
+ultralytics
+requests
+scikit-learn
+torch
+torchvision
+gunicorn
